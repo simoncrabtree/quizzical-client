@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Header = () => (
+const Header = ({teamName}) => (
   <div>
-    <h1>Team</h1>
+    <h1>Team: {teamName}</h1>
   </div>
 )
 

@@ -11,9 +11,9 @@ const mapStateToProps = (state) => {
   }
 }
 
-const App = ({isLoggedIn}) => (
+const App = ({isLoggedIn, teamName}) => (
   <div>
-    <Header />
+    <Header teamName={teamName}/>
     {!isLoggedIn ? (
       <LoginPage />
     ) : (

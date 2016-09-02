@@ -8,7 +8,7 @@ import App from './App'
 import reducer from './reducer'
 import {login} from './actions'
 
-let store = createStore(reducer, {isLoggedIn: false})
+let store = createStore(reducer, {isLoggedIn: false, teamName: ""})
 
 ReactDOM.render(
   <Provider store={store}>

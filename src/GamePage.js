@@ -1,8 +1,8 @@
 import React from 'react'
 
-const GamePage = ({teamName}) => (
+const GamePage = () => (
   <div>
-    <h1>Hello {teamName}</h1>
+    <h1>Game</h1>
   </div>
 )
 

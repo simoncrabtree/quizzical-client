@@ -5,7 +5,8 @@ module.exports = (state, action) => {
     case LOG_IN:
       return {
         ...state,
-        teamName: action.teamName
+        teamName: action.teamName,
+        isLoggedIn: true
       }
     default:
       return state

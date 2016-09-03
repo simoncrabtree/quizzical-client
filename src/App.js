@@ -5,8 +5,11 @@ import LoginPage from './LoginPage'
 import GamePage from './GamePage'
 
 const mapStateToProps = (state) => {
+  if(!state)
+    return {isLoggedIn: false}
+  
   return {
-    isLoggedIn: state.isLoggedIn,
+    isLoggedIn: state.isLoggedIn || false,
     teamName: state.teamName
   }
 }

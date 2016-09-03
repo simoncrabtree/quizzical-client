@@ -1,12 +1,16 @@
-import {LOG_IN} from './actions'
+import {LOG_IN, USER_TYPED_TEAMNAME_CHAR} from './actions'
 
 module.exports = (state, action) => {
   switch(action.type) {
     case LOG_IN:
       return {
         ...state,
-        teamName: action.teamName,
         isLoggedIn: true
+      }
+    case USER_TYPED_TEAMNAME_CHAR:
+      return {
+        ...state,
+        teamName: action.teamName
       }
     default:
       return state

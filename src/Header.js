@@ -1,8 +1,12 @@
 import React from 'react'
 
-const Header = ({teamName}) => (
+const Header = ({isLoggedIn, teamName}) => (
   <div>
-    <h1>Team: {teamName}</h1>
+    {isLoggedIn ? (
+      <h1>{teamName}</h1>
+    ) : (
+      <h1>Quizzical</h1>
+    )}
   </div>
 )
 

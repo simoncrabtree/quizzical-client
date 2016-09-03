@@ -6,7 +6,6 @@ import './index.css'
 
 import App from './App'
 import reducer from './reducer'
-import {login} from './actions'
 
 let store = createStore(reducer, {isLoggedIn: false, teamName: ""})
 
@@ -16,5 +15,3 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
-
-store.dispatch(login("Thanks For The Lend"))

@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react'
 import Header from './Header'
 import LoginPage from './LoginPage'
 import GamePage from './GamePage'
+import Quizmaster from './Quizmaster'
 
 const mapStateToProps = (state) => {
   if(!state)
@@ -14,14 +15,10 @@ const mapStateToProps = (state) => {
   }
 }
 
-const App = ({isLoggedIn, teamName}) => (
+const App = ({isLoggedIn, isQuizmaster, teamName}) => (
   <div>
     <Header isLoggedIn={isLoggedIn} teamName={teamName}/>
-    {!isLoggedIn ? (
-      <LoginPage />
-    ) : (
-      <GamePage />
-    )}
+    {!isLoggedIn ? (<LoginPage />) : teamName === "quizmaster" ? (<Quizmaster/>) : (<GamePage />)}
     
   </div>
 )

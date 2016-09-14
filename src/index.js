@@ -10,17 +10,22 @@ import reducer from './reducer'
 
 import io from 'socket.io-client'
 
+const socket = io.connect('http://127.0.0.1:8090')
+import remoteActionMiddleware from './remote_action_middleware'
+
 const reducerWithStorage = storage.reducer(reducer)
 import createEngine from 'redux-storage-engine-localstorage';
 const engine = createEngine('quizzical-state');
 const middleware = storage.createMiddleware(engine);
-const createStoreWithMiddleware = applyMiddleware(middleware)(createStore);
+
+const createStoreWithMiddleware = applyMiddleware(middleware, remoteActionMiddleware(socket))(createStore);
 const store = createStoreWithMiddleware(reducerWithStorage);
 
-const socket = io.connect('http://127.0.0.1:8090')
+
 socket.on('state', state =>
   store.dispatch({type: 'SET_STATE', state})
 );
+
 
 const load = storage.createLoader(engine);
 load(store);

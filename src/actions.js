@@ -12,5 +12,5 @@ export function userTypedTeamNameChar(teamName) {
 }
 
 export function askQuestion() {
-  return {type: ASK_QUESTION}
+  return {type: ASK_QUESTION, broadcast: true}
 }

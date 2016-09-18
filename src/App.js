@@ -18,8 +18,9 @@ const mapStateToProps = (state) => {
 const App = ({isLoggedIn, isQuizmaster, teamName}) => (
   <div>
     <Header isLoggedIn={isLoggedIn} teamName={teamName}/>
-    {!isLoggedIn ? (<LoginPage />) : teamName === "quizmaster" ? (<Quizmaster/>) : (<GamePage />)}
-    
+    {!isLoggedIn ? (<LoginPage />) : teamName === "quizmaster" ? 
+      (<Quizmaster/>) : 
+      (<GamePage />)}
   </div>
 )
 

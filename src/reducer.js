@@ -20,8 +20,15 @@ module.exports = (state, action) => {
       }
 
     case ASK_QUESTION:
-      console.log(action)
-      return state
+      return {
+        ...state,
+      }
+
+    case "QUESTION_ASKED":
+      return {
+        ...state,
+        currentQuestion: action.question
+      }
     default:
       return state
   }

@@ -10,7 +10,7 @@ import reducer from './reducer'
 
 import io from 'socket.io-client'
 
-const socket = io.connect('http://127.0.0.1:8090')
+const socket = io.connect('http://192.168.1.177:8090')
 import remoteActionMiddleware from './remote_action_middleware'
 
 const reducerWithStorage = storage.reducer(reducer)
@@ -26,6 +26,10 @@ socket.on('state', state =>
   store.dispatch({type: 'SET_STATE', state})
 );
 
+socket.on('action', action => {
+  console.log('Socket action', action)
+  store.dispatch(action)
+})
 
 const load = storage.createLoader(engine);
 load(store);
